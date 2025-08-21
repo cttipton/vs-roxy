@@ -3,7 +3,7 @@
   "displayName": "vs-roxy",
   "description": "A VS Code extension for managing local HTTP reverse proxies with path-based routing.",
   "version": "0.0.1",
-  "publisher": "your-publisher-id",
+  "publisher": "iminshell",
   "repository": {
     "type": "git",
     "url": "https://github.com/cttipton/vs-roxy.git"
