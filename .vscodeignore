@@ -1,0 +1,31 @@
+# Files to exclude from the VSIX
+out/
+.vscode/
+**/*.map
+**/*.ts
+**/*.tsbuildinfo
+test/**
+src/test/**
+coverage/**
+logs/**
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.tmp
+*.temp
+*.cache
+.npm/
+.pnpm-store/
+.yarn/*
+!/.yarn/releases
+!/.yarn/plugins
+!/.yarn/sdks
+!/.yarn/versions
+
+# Keep compiled output & essential metadata
+!dist/**
+!package.json
+!README.md
+!LICENSE

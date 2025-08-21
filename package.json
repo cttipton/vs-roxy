@@ -3,9 +3,18 @@
   "displayName": "vs-roxy",
   "description": "A VS Code extension for managing local HTTP reverse proxies with path-based routing.",
   "version": "0.0.1",
+  "publisher": "your-publisher-id",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cttipton/vs-roxy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cttipton/vs-roxy/issues"
+  },
+  "homepage": "https://github.com/cttipton/vs-roxy#readme",
   "license": "BSD-3-Clause",
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.103.0"
   },
   "categories": [
     "Other"
@@ -109,20 +118,24 @@
     "watch-tests": "tsc -p . -w --outDir out",
     "pretest": "npm run compile-tests && npm run compile && npm run lint",
     "lint": "eslint src",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "vsce:package": "vsce package",
+    "vsce:publish": "vsce publish",
+    "vsce:lsf": "vsce ls-files"
   },
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "24.x",
     "@types/vscode": "^1.103.0",
-    "@typescript-eslint/eslint-plugin": "^8.39.0",
-    "@typescript-eslint/parser": "^8.39.0",
+  "@typescript-eslint/eslint-plugin": "^8.40.0",
+  "@typescript-eslint/parser": "^8.40.0",
     "@vscode/test-cli": "^0.0.11",
     "@vscode/test-electron": "^2.5.2",
-    "eslint": "^9.32.0",
+    "@vscode/vsce": "^3.6.0",
+  "eslint": "^9.33.0",
     "ts-loader": "^9.5.2",
     "typescript": "^5.9.2",
-    "webpack": "^5.101.0",
+  "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1"
   }
 }
