@@ -1,0 +1,128 @@
+{
+  "name": "vs-roxy",
+  "displayName": "vs-roxy",
+  "description": "A VS Code extension for managing local HTTP reverse proxies with path-based routing.",
+  "version": "0.0.1",
+  "license": "BSD-3-Clause",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "vs-roxy.startProxy",
+        "title": "Start Reverse Proxy",
+        "category": "Roxy"
+      },
+      {
+        "command": "vs-roxy.stopProxy",
+        "title": "Stop Reverse Proxy",
+        "category": "Roxy"
+      },
+      {
+        "command": "vs-roxy.addRoute",
+        "title": "Add Route",
+        "category": "Roxy"
+      },
+      {
+        "command": "vs-roxy.removeRoute",
+        "title": "Remove Route",
+        "category": "Roxy"
+      },
+      {
+        "command": "vs-roxy.showConfig",
+        "title": "Show Configuration",
+        "category": "Roxy"
+      }
+    ],
+    "configuration": {
+      "title": "Roxy",
+      "properties": {
+        "roxy.proxyPort": {
+          "type": "number",
+          "default": 8080,
+          "description": "Port for the reverse proxy server"
+        },
+        "roxy.routes": {
+          "type": "array",
+          "default": [],
+          "description": "Array of route configurations",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "description": "URL path prefix"
+              },
+              "target": {
+                "type": "string",
+                "description": "Target URL"
+              },
+              "enabled": {
+                "type": "boolean",
+                "default": true,
+                "description": "Whether this route is enabled"
+              }
+            }
+          }
+        }
+      }
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "roxyRoutes",
+          "name": "Proxy Routes",
+          "when": "workspaceFolderCount > 0",
+          "icon": "$(list-tree)"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "vs-roxy.addRoute",
+          "when": "view == roxyRoutes",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "vs-roxy.removeRoute",
+          "when": "view == roxyRoutes",
+          "group": "inline"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "npm run compile-tests && npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "@types/vscode": "^1.103.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^9.32.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.9.2",
+    "webpack": "^5.101.0",
+    "webpack-cli": "^6.0.1"
+  }
+}

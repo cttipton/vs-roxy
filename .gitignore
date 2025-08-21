@@ -1,0 +1,96 @@
+# ---- Node & Package Managers ----
+node_modules/
+.npm/
+.pnpm-store/
+.yarn/*
+!/.yarn/releases
+!/.yarn/plugins
+!/.yarn/sdks
+!/.yarn/versions
+
+# Lockfiles (keep exactly one you choose to use; comment others if not used)
+# yarn.lock
+# pnpm-lock.yaml
+# DO NOT ignore package-lock.json if you rely on npm for reproducible builds
+
+# Debug / diagnostic logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ---- TypeScript / Build Artifacts ----
+out/
+dist/
+coverage/
+coverage-final.json
+.nyc_output/
+reports/
+*.tsbuildinfo
+.eslintcache
+
+# ---- VS Code Extension Packaging ----
+*.vsix
+.vscode-test/
+.vscode-test-web/
+
+# ---- VS Code Workspace Settings ----
+# Keep curated workspace config files but ignore the rest of user-local clutter
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# ---- Runtime / Generated State (proxy) ----
+proxy-runtime/
+proxy-logs/
+.proxy-state.json
+
+# ---- Environment / Secrets ----
+.env
+.env.*
+!.env.example
+.secret*
+*.pem
+*.key
+*.crt
+
+# ---- Temporary & Caches ----
+.tmp/
+tmp/
+temp/
+.cache/
+*.swp
+*~
+*.bak
+*.orig
+.DS_Store
+Thumbs.db
+
+# ---- Container / Local Orchestration Data ----
+docker-data/
+podman-data/
+# If you generate these locally only
+# docker-compose.override.yml
+
+# ---- OS / Misc ----
+.idea/
+.project
+.classpath
+.settings/
+
+# ---- Testing Artifacts ----
+.jest-cache/
+.jest-test-results.json
+playwright-report/
+playwright/.cache
+
+# ---- Misc Tools ----
+.sass-cache/
+.parcel-cache/
+.bruno/
+
+# End of .gitignore
